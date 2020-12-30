@@ -11,7 +11,7 @@ export const ERROR = "ERROR"
 
 // Actions creators
 export const loading = isLoading => dispatch => {
-    dispatch({type: Loading, payload: isLoading})
+    dispatch({type: LOADING, payload: isLoading})
 }
 
 export const catchError = error => dispatch => {
@@ -20,25 +20,26 @@ export const catchError = error => dispatch => {
 
 export const login = user => dispatch => {
     loading(true)
-    Actions.post(`${config.baseUrl}/api/auth/login/`, user)
+    Axios.post(`${config.baseUrl}/api/auth/login/`, user)
         .then(({data}) => {
             loading(false);
             catchError('')
             
-            // Token decode
+            console.log(data);
             localStorage.setItem('token', data.token)
             dispatch({type: LOGIN, payload: data.user})
         })
         .catch(error => {
             loading(false)
-            const errorMessage = error.response.data.non_field_errors
+            const errorMessage = error.response.data.mes
             console.log(errorMessage);
             catchError(errorMessage);
+            console.log(error);
         })
 }
 
 export const singup = user => dispatch => {
-
+    
 }
 
 export const logout = () => dispatch => {
@@ -57,7 +58,7 @@ export const init = {
 // User  Reducer
 const userReducer = (state = init, action) => {
     switch (action.type) {
-        case Login:
+        case LOGIN:
             return {
                 ...state,
                 user: action.payload,
