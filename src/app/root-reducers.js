@@ -1,15 +1,24 @@
 import { combineReducers } from 'redux';
 
 
-const reducer = (state={name: ''}, actions) => {
+const reducer = (state={name: ''}, action) => {
   return state
 }
 
-const postReducer = (state=[], actions) => {
+const postReducer = (state=[], action) => {
     return state
 }
 
-const userReducer = (state={isAuthenticated: true}, actions) => {
+const userReducer = (state={isAuthenticated: true}, action) => {
+    if (action.type === 'login') {
+        return {
+          isAuthenticated: true
+        }
+    }else if(action.type === 'logout'){
+        return {
+          isAuthenticated: false,
+        }
+    }
     return state
 }
 
