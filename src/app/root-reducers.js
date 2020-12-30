@@ -12,11 +12,13 @@ const postReducer = (state=[], action) => {
 const userReducer = (state={isAuthenticated: true}, action) => {
     if (action.type === 'login') {
         return {
-          isAuthenticated: true
+          isAuthenticated: true,
+          payload: action.payload
         }
     }else if(action.type === 'logout'){
         return {
           isAuthenticated: false,
+          payload: action.payload
         }
     }
     return state
