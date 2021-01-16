@@ -1,12 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { login } from '../store/actions/authAction';
+
 
 class Login extends React.Component {
 
     state = {
-        email: '',
+        username: '',
         password: '',
         error: {}
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if(JSON.stringify(nextProps.auth.error) !== JSON.stringify(prevState.error)){
+            return {
+                error: nextProps.auth.error
+            }
+        }
+        return null
     }
 
     changeHandler = event => {
@@ -17,10 +30,14 @@ class Login extends React.Component {
 
     submitHandler = event => {
         event.preventDefault();
+        this.props.login({
+            username: this.state.username,
+            password: this.state.password
+        }, this.props.history)
     }
 
     render() {
-        const {email, password, error} = this.state
+        const {username, password, error} = this.state
         return (
             <div className="row">
                 <div className="col-md-6 offset-3 mt-5">
@@ -31,16 +48,17 @@ class Login extends React.Component {
                         <div className="card-body">
                             <form onSubmit={this.submitHandler}>
                                 <div className="form-group">
-                                    <label htmlFor="email">Enter a valid email</label>
+                                    <label htmlFor="username">Enter a valid usernme</label>
                                     <input
-                                        type="email"
-                                        placeholder="Enter your email"
-                                        name="email"
-                                        id="email"
-                                        className="form-control"
-                                        value={email}
+                                        type="text"
+                                        placeholder="Enter your username"
+                                        name="username"
+                                        id="username"
+                                        className={error.username ? 'form-control is-invalid': 'form-control'}
+                                        value={username}
                                         onChange={this.changeHandler}
                                     />
+                                    {error.username && <div className="invalid-feedback">{error.username}</div>}
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="password">Enter password</label>
@@ -49,10 +67,11 @@ class Login extends React.Component {
                                         placeholder="*******************"
                                         name="password"
                                         id="password"
-                                        className="form-control"
+                                        className={error.password ? 'form-control is-invalid': 'form-control'}
                                         value={password}
                                         onChange={this.changeHandler}
                                     />
+                                    {error.password && <div className="invalid-feedback">{error.password}</div>}
                                 </div>
                                 <button type="submit" className="btn btn-success btn-sm">Login</button>
                             </form>
@@ -66,4 +85,9 @@ class Login extends React.Component {
         )
     }
 }
-export default Login;
+
+const mapStateToProps = state => ({
+    auth: state.auth
+})
+
+export default connect(mapStateToProps, {login}) (Login);

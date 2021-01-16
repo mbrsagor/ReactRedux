@@ -57,7 +57,7 @@ class Register extends React.Component {
                                         value={username}
                                         onChange={this.changeHandler}
                                     />
-                                    {error.name && <div className="invalid-feedback">{error.username}</div>}
+                                    {error.username && <div className="invalid-feedback">{error.username}</div>}
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="email">Enter a valid email</label>
