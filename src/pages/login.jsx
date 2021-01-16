@@ -5,7 +5,7 @@ class Login extends React.Component {
 
     state = {
         email: '',
-        password1: '',
+        password: '',
         error: {}
     }
 
@@ -20,7 +20,7 @@ class Login extends React.Component {
     }
 
     render() {
-        const {email, password1, error} = this.state
+        const {email, password, error} = this.state
         return (
             <div className="row">
                 <div className="col-md-6 offset-3 mt-5">
@@ -43,14 +43,14 @@ class Login extends React.Component {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="password1">Enter password</label>
+                                    <label htmlFor="password">Enter password</label>
                                     <input
-                                        type="password1"
+                                        type="password"
                                         placeholder="*******************"
-                                        name="password1"
-                                        id="password1"
+                                        name="password"
+                                        id="password"
                                         className="form-control"
-                                        value={password1}
+                                        value={password}
                                         onChange={this.changeHandler}
                                     />
                                 </div>
