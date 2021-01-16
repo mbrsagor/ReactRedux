@@ -15,9 +15,9 @@ class Register extends React.Component {
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
-        if(JSON.stringify(nextProps.error) !== JSON.stringify(prevState.error)){
+        if(JSON.stringify(nextProps.auth.error) !== JSON.stringify(prevState.error)){
             return {
-                error: nextProps.error
+                error: nextProps.auth.error
             }
         }
         return null
@@ -32,7 +32,7 @@ class Register extends React.Component {
     submitHandler = event => {
         event.preventDefault();
         let { username, email, password1, password2 } = this.state
-        this.props.register({username, email, password1, password2})
+        this.props.register({username, email, password1, password2}, this.props.history)
     }
 
     render() {
@@ -57,7 +57,7 @@ class Register extends React.Component {
                                         value={username}
                                         onChange={this.changeHandler}
                                     />
-                                    <div className="invalid-feedback">{error.username}</div>
+                                    {error.name && <div className="invalid-feedback">{error.username}</div>}
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="email">Enter a valid email</label>
@@ -70,7 +70,7 @@ class Register extends React.Component {
                                         value={email}
                                         onChange={this.changeHandler}
                                     />
-                                    <div className="invalid-feedback">{error.email}</div>
+                                    {error.email && <div className="invalid-feedback">{error.email}</div>}
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="password1">Enter password</label>
@@ -83,7 +83,7 @@ class Register extends React.Component {
                                         value={password1}
                                         onChange={this.changeHandler}
                                     />
-                                    <div className="invalid-feedback">{error.password1}</div>
+                                    {error.password1 && <div className="invalid-feedback">{error.password1}</div>}
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="password2">Enter confirm password</label>
@@ -96,7 +96,7 @@ class Register extends React.Component {
                                         value={password2}
                                         onChange={this.changeHandler}
                                     />
-                                    <div className="invalid-feedback">{error.password2}</div>
+                                    {error.password2 && <div className="invalid-feedback">{error.password2}</div>}
                                 </div>
                                 <button type="submit" className="btn btn-success btn-sm">Register</button>
                             </form>
