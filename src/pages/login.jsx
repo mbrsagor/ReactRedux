@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { login } from '../store/actions/authAction';
+// import { login } from '../store/actions/authAction';
 
 
 class Login extends React.Component {
@@ -30,10 +30,7 @@ class Login extends React.Component {
 
     submitHandler = event => {
         event.preventDefault();
-        this.props.login({
-            username: this.state.username,
-            password: this.state.password
-        }, this.props.history)
+        console.log("Login done")
     }
 
     render() {
@@ -90,4 +87,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps, {login}) (Login);
+export default connect(mapStateToProps) (Login);
