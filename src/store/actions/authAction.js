@@ -30,7 +30,6 @@ export const login = (user, history) => (dispatch) => {
       let token = res.data.token;
       localStorage.setItem("auto_token", token);
       let decode = jwtDecode(token);
-      //   console.log(decode);
       dispatch({
         type: Types.SET_USER,
         payload: {

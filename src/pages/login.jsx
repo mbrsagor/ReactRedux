@@ -42,13 +42,13 @@ class Login extends React.Component {
             <div className="row">
                 <div className="col-md-6 offset-3 mt-5">
                     <div className="card">
-                        <div className="card-header">
-                            <h4 className="card-title text-center">Login here</h4>
+                        <div className="card-header text-center">
+                            <h4 className="card-title">Login here</h4>
                         </div>
                         <div className="card-body">
                             <form onSubmit={this.submitHandler}>
                                 <div className="form-group">
-                                    <label htmlFor="username">Enter a valid usernme</label>
+                                    <label htmlFor="username">Enter username</label>
                                     <input
                                         type="text"
                                         placeholder="Enter your username"
