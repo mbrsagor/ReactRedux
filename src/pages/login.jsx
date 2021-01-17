@@ -38,7 +38,9 @@ class Login extends React.Component {
     }
 
     render() {
-        const {username, password, error} = this.state
+        const { username, password, error } = this.state
+        // console.log(error);
+        // console.log(typeof(error))
         return (
             <div className="row">
                 <div className="col-md-6 offset-3 mt-5">
