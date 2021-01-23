@@ -13,8 +13,8 @@ body {
     flex-direction: column;
     position: absolute;
     left: 0;
-    width: 270px;
-    height: 100%;
-    background: #0D1117;
+    width: 240px;
+    height: 100vh;
     z-index: 99;
+    background: #0D1117;
 }
