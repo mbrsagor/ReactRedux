@@ -22,18 +22,8 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
-                <Link to='/' className="nav-link">
-                  Dashboard <span className="sr-only">(current)</span>
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link to='/login' className="nav-link">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to='/registration' className="nav-link">
-                  Registration
+                  Logout <span className="sr-only">(current)</span>
                 </Link>
               </li>
             </ul>

@@ -8,6 +8,10 @@ body {
     color: #666666;
 }
 
+ul , li {
+    list-style-type: none;
+}
+
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -16,5 +20,14 @@ body {
     width: 240px;
     height: 100vh;
     z-index: 99;
-    background: #0D1117;
+    background: #31353D;
+}
+
+.sidebar-menu ul li a{
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 30px 8px 20px;
+    color: #818896;
 }

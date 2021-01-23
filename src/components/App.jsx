@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Home from "../pages/home";
+import Dashboard from "../pages/Dashboard";
 import Login from "../pages/login";
 import Register from "../pages/register";
 import Header from "./Header";
@@ -22,7 +22,7 @@ class App extends Component {
               <div className="row">
                 <div className="col-12">
                   <Switch>
-                    <Route path="/" exact component={Home} />
+                    <Route path="/" exact component={Dashboard} />
                     <Route path="/login" component={Login} />
                     <Route path="/registration" exact component={Register} />
                   </Switch>

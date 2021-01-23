@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-class Home extends Component {
+class Dashboard extends Component {
   render() {
     console.log(this.props.auth);
     const { auth } = this.props;
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Dashboard);

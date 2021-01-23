@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import NavBar from './NavBar';
 
 
 class Sidebar extends Component {
     render() {
         return (
-            <div className="sidebar">
-                <h2>Main navbar</h2>
+          <div className="sidebar">
+            <div className="pl-4">
+              <NavBar />
             </div>
-        )
+          </div>
+        );
     }
 }
 
