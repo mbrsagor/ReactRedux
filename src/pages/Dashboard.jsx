@@ -5,7 +5,7 @@ import { logout } from "../store/actions/authAction";
 
 class Dashboard extends Component {
   render() {
-    console.log(this.props.auth);
+    // console.log(this.props.auth);
     const { auth } = this.props;
     return (
       <div>
@@ -27,7 +27,7 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   auth: state.auth,
 });
 

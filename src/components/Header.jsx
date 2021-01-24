@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../store/actions/authAction';
 
 
 class Header extends Component {
   render() {
+    const { auth } = this.props;
+    // console.log(this.props.auth);
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,10 +25,16 @@ class Header extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
+              {auth.isAuthenticated ? <span className="mt-2 text-muted">{auth.user.user_id}</span> : null}
               <li className="nav-item active">
-                <Link to='/login' className="nav-link">
+                {auth.isAuthenticated ?  
+                <button onClick={() => this.props.logout(this.props.history)} className="nav-link btn btn-default">
                   Logout <span className="sr-only">(current)</span>
-                </Link>
+                  </button>
+                  : 
+                  <Link to='/login' className="nav-link">
+                  Login <span className="sr-only">(current)</span>
+                  </Link>}
               </li>
             </ul>
           </div>
@@ -34,4 +44,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, { logout })(Header);
