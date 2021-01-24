@@ -1,8 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import PostHeader from "../components/PageHader";
+import { fetchPost } from "../store/actions/postAction";
 
 class Post extends Component {
+  componentDidMount() {
+    this.props.fetchPost();
+  }
+
   render() {
+    let { posts } = this.props;
+    console.log(posts.results);
     return (
       <div>
         <PostHeader currentPageName="Post Page" />
@@ -16,16 +24,18 @@ class Post extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  <p>
-                    Conveniently visualize diverse mindshare without
-                    intermandated services.
-                  </p>
-                </td>
-                <td>Demo post</td>
-                <td>10 December 2020</td>
-              </tr>
+              {posts.results &&
+                posts.results.map((post, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>
+                        <p>{post.title}</p>
+                      </td>
+                      <td>{post.post_category.name}</td>
+                      <td>{post.created_at}</td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>
@@ -34,4 +44,8 @@ class Post extends Component {
   }
 }
 
-export default Post;
+const mapStateToProps = (state) => ({
+  posts: state.posts,
+});
+
+export default connect(mapStateToProps, { fetchPost })(Post);
