@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../store/actions/authAction";
 
 class Dashboard extends Component {
   render() {
@@ -12,7 +13,7 @@ class Dashboard extends Component {
         {auth.isAuthenticated ? (
           <div>
             <p>Hello, {auth.user.user_id}</p>
-            <button className="btn btn-danger btn-sm">Logout</button>
+            <button onClick={() => this.props.logout(this.props.history)} className="btn btn-danger btn-sm">Logout</button>
           </div>
         ) : (
           <div>
@@ -30,4 +31,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, { logout })(Dashboard);
