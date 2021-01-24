@@ -17,3 +17,20 @@ export const fetchPost = () => (dispatch) => {
       console.log(error);
     });
 };
+
+// Create post
+export const createPost = (post) => (dispatch) => {
+  Axios.post("http://127.0.0.1:8000/api/post/", post)
+    .then((res) => {
+      console.log(res.data);
+      dispatch({
+        type: Types.CREATE_POST,
+        payload: {
+          results: res.data,
+        },
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import PostHeader from "../components/PageHader";
-import { fetchPost } from "../store/actions/postAction";
+import PageHader from "../../components/PageHader";
+import { fetchPost } from "../../store/actions/postAction";
 
 class Post extends Component {
   componentDidMount() {
@@ -14,11 +14,13 @@ class Post extends Component {
     // console.log(posts.results);
     return (
       <div>
-        <PostHeader currentPageName="Post Page" />
+        <PageHader currentPageName="Post list Page" />
         <div className="row mt-2">
           <div className="col-md-3"></div>
           <div className="col-md-9 text-right">
-            <Link className="btn btn-success btn-sm" to="/">Add New Post</Link>
+            <Link className="btn btn-success btn-sm" to="/">
+              Add New Post
+            </Link>
           </div>
         </div>
         <div className="row">

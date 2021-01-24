@@ -7,8 +7,8 @@ class NavBar extends Component {
       <div>
         <div className="sidebar-menu">
           <ul>
-            <li className="header-menu">
-              <span>Main navication</span>
+            <li className="header-menu text-center">
+              <span className="text-light">Main navication</span>
             </li>
             <li className="nav">
               <Link to="/">
@@ -18,6 +18,11 @@ class NavBar extends Component {
             <li className="nav">
               <Link to="/post">
                 <span>Post List</span>
+              </Link>
+            </li>
+            <li className="nav">
+              <Link to="/add-new-post">
+                <span>Add Post</span>
               </Link>
             </li>
             <li className="nav">
@@ -38,11 +43,6 @@ class NavBar extends Component {
             <li className="nav">
               <Link to="/">
                 <span>Task List</span>
-              </Link>
-            </li>
-            <li className="nav">
-              <Link to="/">
-                <span>Profile</span>
               </Link>
             </li>
           </ul>
