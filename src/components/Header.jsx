@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logout, getCurrentUser } from "../store/actions/authAction";
+import { logout } from "../store/actions/authAction";
+import { getCurrentUser } from "../store/actions/currentUserAction";
 
 
 class Header extends Component {

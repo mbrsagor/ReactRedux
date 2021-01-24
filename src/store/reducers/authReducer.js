@@ -19,11 +19,6 @@ const authReducer = (state = init, action) => {
         ...state,
         error: action.payload.error,
       };
-    case Types.CURRENT_USER:
-      return {
-        ...state,
-        user: action.payload
-      };
     default:
       return state;
   }

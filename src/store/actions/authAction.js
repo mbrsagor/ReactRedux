@@ -63,26 +63,3 @@ export const logout = (history) => {
     },
   };
 };
-
-// Get current user information
-export const getCurrentUser = (user) => (dispatch) => {
-  Axios.get("http://127.0.0.1:8000/api/user", user)
-    .then((res) => {
-      console.log(res);
-      dispatch({
-        type: Types.USERS_ERROR,
-        payload: {
-          error: {},
-        },
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-      dispatch({
-        type: Types.USERS_ERROR,
-        payload: {
-          error: error.response.data,
-        },
-      });
-    });
-};
