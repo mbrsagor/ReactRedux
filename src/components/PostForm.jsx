@@ -49,6 +49,8 @@ class PostForm extends Component {
                     className="form-control"
                     name="post_category"
                     id="post_category"
+                    value={post_category}
+                    onChange={this.changeHandler}
                   >
                     <option value="">New</option>
                     <option value="">New</option>
@@ -59,16 +61,23 @@ class PostForm extends Component {
                   <textarea
                     name="description"
                     className="form-control"
-                    onChange={description}
+                    onChange={this.changeHandler}
                     id="description"
                     cols="30"
                     rows="5"
-                    value={post_category}
+                    value={description}
                   ></textarea>
                 </div>
                 <div className="form-group">
-                  <input type="file" className="form-control" />
+                  <input
+                    type="file"
+                    name="image"
+                    value={image}
+                    onChange={this.changeHandler}
+                    className="form-control"
+                  />
                 </div>
+                <button className="btn btn-success btn-sm">Save</button>
               </form>
             </div>
           </div>
