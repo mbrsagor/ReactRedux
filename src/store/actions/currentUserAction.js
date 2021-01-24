@@ -1,7 +1,6 @@
 import Axios from "axios";
 import * as Types from "./types";
 
-
 // Get current user information
 export const getCurrentUser = () => (dispatch) => {
   Axios.get("http://127.0.0.1:8000/api/user")
