@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logout } from '../store/actions/authAction';
+import { logout, getCurrentUser } from "../store/actions/authAction";
 
 
 class Header extends Component {
   render() {
     const { auth } = this.props;
-    // console.log(this.props.auth);
+    console.log(this.props.user);
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -45,7 +45,8 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  user: state.user
 })
 
-export default connect(mapStateToProps, { logout })(Header);
+export default connect(mapStateToProps, { logout, getCurrentUser })(Header);
