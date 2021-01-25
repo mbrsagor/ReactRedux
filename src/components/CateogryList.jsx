@@ -33,7 +33,7 @@ class CateogryList extends Component {
                   <tr key={index}>
                     <td>{cateogry.name}</td>
                     <td>
-                      {cateogry.parent ? <span>{cateogry.parent}</span> : <p>No parent</p>}
+                      {cateogry.parent.name ? <span>{cateogry.parent.name}</span> : <p>No parent</p>}
                     </td>
                     <td>{cateogry.order}</td>
                     <td>

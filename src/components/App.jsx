@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/login";
-import Register from "../pages/register";
+import Registration from "../pages/register";
 import Category from '../pages/category/Category';
 import AddCategory from "../pages/category/AddCategory";
 import Error from "../pages/Error";
@@ -29,8 +29,8 @@ class App extends Component {
                     <Route path="/category-list" exact component={Category} />
                     <Route path="/add-category" exact component={AddCategory} />
                     <Route path="/login" component={Login} />
+                    <Route path="/registration" component={Registration} />
                     <Route component={Error} />
-                    <Route path="/registration" exact component={Register} />
                   </Switch>
                 </div>
               </div>

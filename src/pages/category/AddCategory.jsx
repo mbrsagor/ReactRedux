@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import PageHader from "../../components/PageHader";
+import CategoryForm from "../../components/CategoryForm";
 
 class AddCategory extends Component {
-    render() {
-        return (
-            <div>
-                <h2>Add Cateogry</h2>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="mt-2">
+        <PageHader currentPageName="Add New Categor" />
+        <CategoryForm />
+      </div>
+    );
+  }
 }
 
-export default AddCategory
+export default AddCategory;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { register } from '../store/actions/authAction';
 
 
-class Register extends React.Component {
+class Registration extends React.Component {
 
     state = {
         username: '',
@@ -115,4 +115,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps, {register}) (Register)
+export default connect(mapStateToProps, {register}) (Registration)
