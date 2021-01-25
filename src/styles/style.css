@@ -37,7 +37,12 @@ ul , li {
 }
 
 .sidebar-menu svg {
-    height: 18px !important;
+    height: 18px;
     width: 18px;
     margin-right: 5px;
+}
+
+.category_table svg {
+    height: 18px;
+    width: 18px;
 }
