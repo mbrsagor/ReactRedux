@@ -31,3 +31,13 @@ ul , li {
     padding: 8px 30px 8px 20px;
     color: #818896;
 }
+
+.nav {
+    border-bottom: 1px solid #042522;
+}
+
+.sidebar-menu svg {
+    height: 18px !important;
+    width: 18px;
+    margin-right: 5px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import FeatherIcon from "feather-icons-react";
 
 class NavBar extends Component {
   render() {
@@ -16,23 +17,34 @@ class NavBar extends Component {
               </Link>
             </li>
             <li className="nav">
-              <Link to="/">
-                <span>Add Category</span>
+              <Link to="/add-category">
+                <span>
+                  <FeatherIcon icon="plus" /> Category
+                </span>
               </Link>
             </li>
             <li className="nav">
-              <Link to="/">
-                <span>Categorys</span>
+              <Link to="/category-list">
+                <span>
+                  <FeatherIcon icon="list" />
+                  Categorys
+                </span>
               </Link>
             </li>
             <li className="nav">
-              <Link to="/">
-                <span>Add Task</span>
+              <Link to="/add-task">
+                <span>
+                  <FeatherIcon icon="plus" />
+                  Add Task
+                </span>
               </Link>
             </li>
             <li className="nav">
-              <Link to="/">
-                <span>Task List</span>
+              <Link to="/task-list">
+                <span>
+                  <FeatherIcon icon="list" />
+                  Task List
+                </span>
               </Link>
             </li>
           </ul>

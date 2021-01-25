@@ -6,9 +6,7 @@ class Sidebar extends Component {
     render() {
         return (
           <div className="sidebar">
-            <div className="pl-4">
-              <NavBar />
-            </div>
+            <NavBar />
           </div>
         );
     }
