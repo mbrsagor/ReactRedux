@@ -16,23 +16,13 @@ class NavBar extends Component {
               </Link>
             </li>
             <li className="nav">
-              <Link to="/post">
-                <span>Post List</span>
-              </Link>
-            </li>
-            <li className="nav">
-              <Link to="/add-new-post">
-                <span>Add Post</span>
-              </Link>
-            </li>
-            <li className="nav">
               <Link to="/">
                 <span>Add Category</span>
               </Link>
             </li>
             <li className="nav">
               <Link to="/">
-                <span>Category List</span>
+                <span>Categorys</span>
               </Link>
             </li>
             <li className="nav">

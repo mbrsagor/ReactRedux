@@ -5,7 +5,7 @@ import Axios from "axios";
 export const fetchPost = () => (dispatch) => {
   Axios.get("http://127.0.0.1:8000/api/post/")
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       dispatch({
         type: Types.FETCH_POST,
         payload: {
@@ -23,6 +23,7 @@ export const createPost = (post) => (dispatch) => {
   Axios.post("http://127.0.0.1:8000/api/post/", post)
     .then((res) => {
       console.log(res.data);
+      console.log("The post was created successfully.")
       dispatch({
         type: Types.CREATE_POST,
         payload: {

@@ -4,14 +4,20 @@ import { createPost } from "../store/actions/postAction";
 
 class PostForm extends Component {
   state = {
+    author: null,
     title: "",
     post_category: "",
     description: "",
-    image: "",
   };
 
   submitHandler = (event) => {
     event.preventDefault();
+    this.props.createPost(this.state);
+    this.setState({
+      title: "",
+      post_category: "",
+      description: "",
+    });
   };
 
   changeHandler = (event) => {
@@ -21,7 +27,8 @@ class PostForm extends Component {
   };
 
   render() {
-    const { title, post_category, description, image } = this.state;
+    const { title, author, post_category, description } = this.state;
+    const { auth } = this.props;
     return (
       <div className="row">
         <div className="col-md-6 offset-3 mt-3">
@@ -31,6 +38,11 @@ class PostForm extends Component {
             </div>
             <div className="card-body">
               <form onSubmit={this.submitHandler}>
+                <input
+                  type="hidden"
+                  name="author"
+                  value={author}
+                />
                 <div className="form-group">
                   <label htmlFor="title">Post Title</label>
                   <input
@@ -52,9 +64,8 @@ class PostForm extends Component {
                     value={post_category}
                     onChange={this.changeHandler}
                   >
-                    <option value="">New</option>
-                    <option value="">New</option>
-                    <option value="">New</option>
+                    <option value={1}>Laptop</option>
+                    <option value={2}>MacBook</option>
                   </select>
                 </div>
                 <div className="form-group">
@@ -68,15 +79,6 @@ class PostForm extends Component {
                     value={description}
                   ></textarea>
                 </div>
-                <div className="form-group">
-                  <input
-                    type="file"
-                    name="image"
-                    value={image}
-                    onChange={this.changeHandler}
-                    className="form-control"
-                  />
-                </div>
                 <button className="btn btn-success btn-sm">Save</button>
               </form>
             </div>
@@ -87,4 +89,8 @@ class PostForm extends Component {
   }
 }
 
-export default PostForm;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { createPost })(PostForm);
