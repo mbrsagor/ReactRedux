@@ -87,7 +87,7 @@ class CategoryForm extends Component {
                   <input
                     type="checkbox"
                     value={isActive}
-                    // onChange={this.changeHandler}
+                    onChange={this.changeHandler}
                   />
                 </div>
                 <button className="btn btn-success btn-sm">Save</button>

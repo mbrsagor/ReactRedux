@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import FeatherIcon from "feather-icons-react";
 import { connect } from "react-redux";
 
-import { fetchCateogry } from "../store/actions/categoryAction";
+import { fetchCateogry, deleteCategory } from "../store/actions/categoryAction";
 
 class CateogryList extends Component {
   componentDidMount() {
@@ -49,13 +49,13 @@ class CateogryList extends Component {
                     </td>
                     <td>{cateogry.created_at}</td>
                     <td className="text-center">
-                      <Link className="btn btn-success btn-sm mr-2" to="/">
+                      <Link className="btn btn-success btn-sm mr-2" to={`/category-detail/${cateogry.id}`}>
                         <FeatherIcon icon="eye" />
                       </Link>
-                      <button className="btn btn-info btn-sm mr-2">
+                      <Link to="/" className="btn btn-info btn-sm mr-2">
                         <FeatherIcon icon="edit" />
-                      </button>
-                      <button className="btn btn-danger btn-sm mr-2">
+                      </Link>
+                      <button onClick={() => this.props.deleteCategory(cateogry.id)} className="btn btn-danger btn-sm mr-2">
                         <FeatherIcon icon="trash" />
                       </button>
                     </td>
@@ -73,4 +73,4 @@ const mapStateToProps = (state) => ({
   categories: state.categories,
 });
 
-export default connect(mapStateToProps, { fetchCateogry })(CateogryList);
+export default connect(mapStateToProps, { fetchCateogry, deleteCategory })(CateogryList);
