@@ -10,19 +10,17 @@ const categoryReducer = (state = [], action) => {
         categories: [state.categories, action.payload],
       };
     case Types.RETRIVE_CATEGORY:
-      let my_cat = [...state];
-      return my_cat.map((cat) => {
-        if (cat.id === action.payload.categories.id) {
-          return action.payload.categories;
-        }
-        return cat;
-      });
-      case Types.DELETE_CATEGORY:
-          let categories = []
-          return {
-              ...state,
-              categories: [categories.filter((cat) => cat.id !==action.payload.id)]
-          }
+      return {
+        ...state,
+        category: {},
+        category: action.payload,
+      };
+    case Types.DELETE_CATEGORY:
+      let categories = [];
+      return {
+        ...state,
+        categories: [categories.filter((cat) => cat.id !== action.payload.id)],
+      };
     default:
       return state;
   }

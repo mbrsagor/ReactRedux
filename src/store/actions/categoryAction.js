@@ -37,14 +37,12 @@ export const createCategory = category => dispatch => {
 
 
 // Detail category
-export const detailCategory = (id, category) => dispatch => {
-    axios.get(`http://127.0.0.1:8000/api/category/${id}/`, category)
+export const detailCategory = id => dispatch => {
+    axios.get(`http://127.0.0.1:8000/api/category/${id}/`)
         .then((res) => {
             dispatch({
                 type: Types.RETRIVE_CATEGORY,
-                payload: {
-                    categories: res.data.id
-                }
+                id: res.data.id
             })
         })
         .catch((error) => {
