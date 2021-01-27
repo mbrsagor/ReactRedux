@@ -13,7 +13,8 @@ class NavBar extends Component {
             </li>
             <li className="nav">
               <Link to="/">
-                <span>Dashboard</span>
+                <span>
+                  <FeatherIcon icon="home" /> Dashboard</span>
               </Link>
             </li>
             <li className="nav">

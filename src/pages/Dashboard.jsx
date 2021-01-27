@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import { logout } from "../store/actions/authAction";
 
 class Dashboard extends Component {
+
+  componentDidMount() {
+    document.title = "Dashboard | React Redux API";
+  }
+
   render() {
     // console.log(this.props.auth);
     const { auth } = this.props;
