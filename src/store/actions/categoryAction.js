@@ -40,9 +40,10 @@ export const createCategory = category => dispatch => {
 export const detailCategory = id => dispatch => {
     axios.get(`http://127.0.0.1:8000/api/category/${id}/`)
         .then((res) => {
+            // console.log(res.data)
             dispatch({
                 type: Types.RETRIVE_CATEGORY,
-                id: res.data.id
+                category: res.data
             })
         })
         .catch((error) => {

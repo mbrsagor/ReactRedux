@@ -17,8 +17,8 @@ class CategoryDetail extends Component {
   }
 
   render() {
-      const { categories } = this.props;
-      console.log(categories);
+    const { category } = this.props;
+    console.log(category);
     return (
       <div>
         <PageHeader currentPageName="Category detail page" />
@@ -33,7 +33,7 @@ class CategoryDetail extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  categories: state.categories,
+  category: state.category,
 });
 
 export default connect(mapStateToProps, { detailCategory })(CategoryDetail);

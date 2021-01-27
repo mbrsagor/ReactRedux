@@ -12,7 +12,6 @@ const categoryReducer = (state = [], action) => {
     case Types.RETRIVE_CATEGORY:
       return {
         ...state,
-        category: {},
         category: action.payload,
       };
     case Types.DELETE_CATEGORY:
