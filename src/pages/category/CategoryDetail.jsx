@@ -17,7 +17,8 @@ class CategoryDetail extends Component {
         <PageHeader currentPageName="Category detail page" />
         <div className="row">
           <div className="col-md-12">
-            <h2>Category Name</h2>
+            <h2>Category {category ? category.name : "No cateogry found"}</h2>
+            <p>{category ? category.parent.name : "No cateogry found"}</p>
           </div>
         </div>
       </div>
@@ -26,7 +27,7 @@ class CategoryDetail extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  category: state.category,
+  category: state.categories.category,
 });
 
 export default connect(mapStateToProps, { detailCategory })(CategoryDetail);

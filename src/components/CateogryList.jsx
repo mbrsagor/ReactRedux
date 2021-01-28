@@ -11,6 +11,10 @@ class CateogryList extends Component {
     this.props.fetchCateogry();
   }
 
+  componentDidUpdate() {
+    this.props.fetchCateogry();
+  }
+
   render() {
     let { categories } = this.props;
     return (
@@ -33,7 +37,11 @@ class CateogryList extends Component {
                   <tr key={index}>
                     <td>{cateogry.name}</td>
                     <td>
-                      {cateogry.parent.name ? <span>{cateogry.parent.name}</span> : <p>No parent</p>}
+                      {cateogry.parent.name ? (
+                        <span>{cateogry.parent.name}</span>
+                      ) : (
+                        <p>No parent</p>
+                      )}
                     </td>
                     <td>{cateogry.order}</td>
                     <td>
@@ -49,13 +57,19 @@ class CateogryList extends Component {
                     </td>
                     <td>{cateogry.created_at}</td>
                     <td className="text-center">
-                      <Link className="btn btn-success btn-sm mr-2" to={`/category-detail/${cateogry.id}`}>
+                      <Link
+                        className="btn btn-success btn-sm mr-2"
+                        to={`/category-detail/${cateogry.id}`}
+                      >
                         <FeatherIcon icon="eye" />
                       </Link>
                       <Link to="/" className="btn btn-info btn-sm mr-2">
                         <FeatherIcon icon="edit" />
                       </Link>
-                      <button onClick={() => this.props.deleteCategory(cateogry.id)} className="btn btn-danger btn-sm mr-2">
+                      <button
+                        onClick={() => this.props.deleteCategory(cateogry.id)}
+                        className="btn btn-danger btn-sm mr-2"
+                      >
                         <FeatherIcon icon="trash" />
                       </button>
                     </td>
@@ -73,4 +87,6 @@ const mapStateToProps = (state) => ({
   categories: state.categories,
 });
 
-export default connect(mapStateToProps, { fetchCateogry, deleteCategory })(CateogryList);
+export default connect(mapStateToProps, { fetchCateogry, deleteCategory })(
+  CateogryList
+);

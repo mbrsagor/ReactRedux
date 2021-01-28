@@ -45,7 +45,7 @@ export const detailCategory = (id) => (dispatch) => {
       // console.log(res.data);
       dispatch({
         type: Types.RETRIVE_CATEGORY,
-        category: res.data,
+        payload: res.data,
       });
     })
     .catch((error) => {
