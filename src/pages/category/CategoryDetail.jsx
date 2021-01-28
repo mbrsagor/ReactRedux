@@ -4,16 +4,9 @@ import PageHeader from "../../components/PageHader";
 import { detailCategory } from "../../store/actions/categoryAction";
 
 class CategoryDetail extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: this.props.match.params.id,
-    };
-  }
-
   componentDidMount() {
     document.title = "Category Detail";
-    this.props.detailCategory(this.state.id);
+    this.props.detailCategory(this.props.match.params.id);
   }
 
   render() {

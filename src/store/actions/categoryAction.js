@@ -42,7 +42,7 @@ export const detailCategory = (id) => (dispatch) => {
   axios
     .get(`http://127.0.0.1:8000/api/category/${id}/`)
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       dispatch({
         type: Types.RETRIVE_CATEGORY,
         category: res.data,
