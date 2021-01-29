@@ -33,12 +33,14 @@ class CategoryForm extends Component {
   render() {
     const { name, parent, order, isActive } = this.state;
     let { categories } = this.props;
+    // console.log(message);
     return (
       <div className="row">
         <div className="col-md-6 offset-3 mt-3">
           <div className="card">
             <div className="card-header">
               <h4 className="card-title">Add New Cateogry</h4>
+              <p>Message: {categories && categories.message}</p>
             </div>
             <div className="card-body">
               <form onSubmit={this.submitHandler}>
@@ -63,11 +65,14 @@ class CategoryForm extends Component {
                     value={parent}
                     onChange={this.changeHandler}
                   >
-                    {categories.results && categories.results.map((category, index) => {
-                      return (
-                          <option key={index} value={category.id}>{category.name}</option>
-                        )
-                    })}
+                    {categories.results &&
+                      categories.results.map((category, index) => {
+                        return (
+                          <option key={index} value={category.id}>
+                            {category.name}
+                          </option>
+                        );
+                      })}
                   </select>
                 </div>
                 <div className="form-group">
@@ -102,6 +107,7 @@ class CategoryForm extends Component {
 
 const mapStateToProps = state => ({
   categories: state.categories,
+  message: state.message
 })
 
 export default connect(mapStateToProps, { createCategory, fetchCateogry })(CategoryForm);

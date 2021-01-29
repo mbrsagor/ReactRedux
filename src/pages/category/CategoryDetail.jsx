@@ -20,9 +20,7 @@ class CategoryDetail extends Component {
         <div className="row">
           <Link
             className="btn btn-success btn-sm mt-2 ml-2"
-            to="/category-list"
-          >
-            {" "}
+            to="/category-list">
             <FeatherIcon icon="skip-back" /> Back
           </Link>
           <div className="col-md-12 mt-3">

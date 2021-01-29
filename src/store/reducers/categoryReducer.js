@@ -7,7 +7,7 @@ const categoryReducer = (state = [], action) => {
     case Types.CREATE_CATEGORY:
       return {
         ...state,
-        categories: [state.categories, action.payload],
+        categories: [action.payload],
       };
     case Types.RETRIVE_CATEGORY:
       return {

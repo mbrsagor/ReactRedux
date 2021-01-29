@@ -24,11 +24,13 @@ export const createCategory = (category) => (dispatch) => {
   axios
     .post("http://127.0.0.1:8000/api/category/", category)
     .then((res) => {
-      // console.log(res);
+      // console.log(res.data);
+      let message = "Category crated successfully";
       dispatch({
         type: Types.CREATE_CATEGORY,
         payload: {
           categories: res.data,
+          message: message
         },
       });
     })
