@@ -31,12 +31,13 @@ class Registration extends React.Component {
 
     submitHandler = event => {
         event.preventDefault();
-        let { username, email, password1, password2 } = this.state
-        this.props.register({username, email, password1, password2}, this.props.history)
+        this.props.register(this.state, this.props.history)
     }
 
     render() {
-        const {username, email, password1, password2, error} = this.state
+        const { username, email, password1, password2, error } = this.state
+        const { auth } = this.props;
+        console.log(auth);
         return (
             <div className="row">
                 <div className="col-md-6 mt-5 offset-3">
