@@ -36,8 +36,6 @@ class Registration extends React.Component {
 
     render() {
         const { username, email, password1, password2, error } = this.state
-        const { auth } = this.props;
-        console.log(auth);
         return (
             <div className="row">
                 <div className="col-md-6 mt-5 offset-3">
