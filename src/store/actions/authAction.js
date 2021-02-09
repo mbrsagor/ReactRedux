@@ -1,10 +1,11 @@
 import Axios from "axios";
 import jwtDecode from "jwt-decode";
 import * as Types from "./types";
+import {BASE_URL} from '../../config/APIURL';
 
 // User register action
 export const register = (user, history) => (dispatch) => {
-  Axios.post("http://127.0.0.1:8000/api/rest-auth/registration", user)
+  Axios.post(`${BASE_URL}/rest-auth/registration`, user)
     .then((res) => {
       dispatch({
         type: Types.USERS_ERROR,
@@ -27,7 +28,7 @@ export const register = (user, history) => (dispatch) => {
 
 // User login action
 export const login = (user, history) => (dispatch) => {
-  Axios.post("http://127.0.0.1:8000/api/login/", user)
+  Axios.post(`${BASE_URL}/login/`, user)
     .then((res) => {
       // console.log(res);
       let token = res.data.access;
