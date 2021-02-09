@@ -27,7 +27,7 @@ export const register = (user, history) => (dispatch) => {
 
 // User login action
 export const login = (user, history) => (dispatch) => {
-  Axios.post("http://127.0.0.1:8000/api/auth/login", user)
+  Axios.post("http://127.0.0.1:8000/api/login/", user)
     .then((res) => {
       // console.log(res);
       let token = res.data.access;

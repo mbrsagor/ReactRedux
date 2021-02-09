@@ -26,7 +26,7 @@ class Header extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
-              {auth.isAuthenticated ? <span className="mt-2 text-muted">{auth.user.user_id}</span> : null}
+              {auth.isAuthenticated ? <span className="mt-2 text-muted">{auth.user.username}</span> : null}
               <li className="nav-item active">
                 {auth.isAuthenticated ?  
                 <button onClick={() => this.props.logout(this.props.history)} className="nav-link btn btn-default">
