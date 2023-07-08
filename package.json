@@ -9,7 +9,7 @@
     "axios-react": "^2.0.2",
     "feather-icons-react": "^0.4.1",
     "jwt-decode": "^3.1.2",
-    "node-sass": "7.0.0",
+    "node-sass": "9.0.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
