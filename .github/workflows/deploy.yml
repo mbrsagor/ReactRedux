@@ -1,0 +1,53 @@
+name: Deploy React-Redux frontend to EC2
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+    environment: EC2_HOST
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v0.1.9
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "Starting deployment... 🚀"
+
+            # If repo doesn't exist, clone it
+            if [ ! -d "reactReeux" ]; then
+              git clone https://${{ secrets.GH_TOKEN }}@github.com/mbrsagor/reactRedux.git
+            fi
+
+            cd reactRedux
+
+            echo "📦 Pulling latest code..."
+            git checkout develop
+            git pull origin develop
+
+            echo "🔐 Writing .env file..."
+            cat <<EOF > .env
+            VITE_API_URL=${{ secrets.VITE_API_URL }}
+            EOF
+
+            echo "🧹 Stopping old containers..."
+            docker-compose down
+
+            echo "🔧 Rebuilding with new config..."
+            docker-compose build --no-cache
+
+            echo "🚀 Starting new container..."
+            docker-compose up -d
+
+            echo "✅ Deployment completed successfully!"
+
