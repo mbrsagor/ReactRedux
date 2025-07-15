@@ -1,4 +1,6 @@
-# React-Redux Task Manager App
+# Simple Task Manager App
+
+> This project is a basic task management web application designed to help users create, view, and manage their tasks efficiently. The frontend is built using React.js, a popular JavaScript library for building user interfaces. For handling global application state and ensuring smooth data flow between components, the project utilizes React-Redux, a predictable state management library that integrates seamlessly with React.
 
 The following steps will walk you through installation on a Mac. Linux should be similar. It's also possible to develop on a Windows machine, but I have not documented the steps. If you've developed the apps on Windows, you should have little problem getting up and running.
 
